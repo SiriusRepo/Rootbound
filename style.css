@@ -1,0 +1,75 @@
+:root {
+    --bg-dark: hsl(0, 0%, 0%);
+    --bg: hsl(0, 0%, 10%);
+    --bg-light: hsl(0, 0%, 20%);
+    --block: hsl(20, 38%, 46%);
+    --water: hsl(200, 56%, 60%);
+    --root: hsl(23, 38%, 28%);
+    --mineral: hsl(0, 0%, 66%);
+    --text: hsl(0, 0%, 90%);
+    --text-muted: hsl(0, 0%, 70%);
+}
+
+body.light {
+    --bg-dark: hsl(0, 0%, 80%);
+    --bg: hsl(0, 0%, 90%);
+    --bg-light: hsl(0, 0%, 100%);
+    --text: hsl(0, 0%, 10%);
+    --text-muted: hsl(0, 0%, 30%);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+}
+
+#grid {
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    --block-size: 20px;
+    background-color: var(--block);
+    position: relative; /* for absolute child blocks */
+}
+
+.vr {
+  width: 2px;             /* thickness of the line */
+  background-color: black;
+  align-self: stretch;    /* makes it as tall as the container */
+}
+
+#grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background-image:
+        linear-gradient(to right, var(--bg-light) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--bg-light) 1px, transparent 1px);
+    background-size: var(--block-size) var(--block-size);
+    background-position: 50% 50%;
+}
+.block {
+    background-color: var(--block);
+    width: var(--block-size);
+    height: var(--block-size);
+    position: absolute;
+    transform: translate(-50%, 50%);
+}
+
+.type-water {
+    background-color: var(--water);
+}
+
+.type-root {
+    background-color: var(--root);
+}
+
+.type-mineral {
+    background-color: var(--mineral);
+}
