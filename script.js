@@ -1,4 +1,5 @@
 const grid = document.querySelector("#grid");
+const themeButton = document.querySelector("#theme");
 
 function ArrToLookup(arr) {
     const lookup = {};
@@ -38,6 +39,8 @@ function DrawGrid(GRID) {
         DrawBlock(X, Y, Type);
     }
 }
+
+themeButton.addEventListener("click", (e) => document.body.classList.toggle("light"));
 
 const GRID = {};
 const range = 10;
